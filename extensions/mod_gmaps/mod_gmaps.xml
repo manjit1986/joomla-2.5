@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+	<name>mod_gmaps</name>
+	<author>Yoeri Nijsen</author>
+	<creationDate>October 2012</creationDate>
+	<copyright>Copyright (C) 2012 www.yoerinijsen.nl. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@yoerinijsen.nl</authorEmail>
+	<authorUrl>http://www.yoerinijsen.nl</authorUrl>
+	<version>1</version>
+	<description>MOD_GMAPS_XML_DESCRIPTION</description>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_Gmaps.ini</language>
+		<language tag="nl-NL">languages/nl-NL.mod_Gmaps.ini</language>
+	</languages>
+	<files>
+		<filename module="mod_gmaps">mod_gmaps.php</filename>
+		<filename>mod_gmaps.xml</filename>
+		<filename>changelog.php</filename>
+		<filename>geocode_cache.txt</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+		<folder>js</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field 	name="google_api_key"
+						type="text" default="" 
+						label="MOD_GMAPS_GOOGLE_API_KEY_LABEL" 
+						size="50" description="MOD_GMAPS_GOOGLE_API_KEY_DESCR" />
+						
+				<field 	name="location" 
+						type="text" 
+						default="" 
+						label="MOD_GMAPS_LOCATION_LABEL" 
+						size="50" 
+						description="MOD_GMAPS_LOCATION_DESCR" />
+						
+				<field 	name="marker_popup" 
+						type="radio" 
+						default="0" 
+						label="MOD_GMAPS_MARKER_POPUP_ONLOAD_LABEL" 
+						description="MOD_GMAPS_MARKER_POPUP_ONLOAD_DESCR">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+				</field>
+						
+				<field 	name="marker_text" 
+						type="textarea"
+						default="" 
+						label="MOD_GMAPS_MARKER_TEXT_LABEL"
+						rows="5" 
+						cols="40" 
+						description="MOD_GMAPS_MARKER_TEXT_DESCR" />
+						
+				<field 	name="main_icon" 
+						type="list" 
+						default="red-dot" 
+						label="MOD_GMAPS_MARKER_MAIN_ICON_LABEL" 
+						description="MOD_GMAPS_MARKER_MAIN_ICON_DESCR">
+							<option value="red-dot">Red dot</option>
+							<option value="orange-dot">Orange dot</option>
+							<option value="yellow-dot">Yellow dot</option>
+							<option value="pink-dot">Pink dot</option>
+							<option value="blue-dot">Blue dot</option>
+							<option value="ltblue-dot">Lightblue dot</option>
+							<option value="green-dot">Green dot</option>
+							<option value="purple-dot">Purple dot</option>
+							<option value="red-pushpin">Red pushpin</option>
+							<option value="ylw-pushpin">Yellow pushpin</option>
+							<option value="pink-pushpin">Pink pushpin</option>
+							<option value="blue-pushpin">Blue pushpin</option>
+							<option value="ltblu-pushpin">Lightblue pushpin</option>
+							<option value="grn-pushpin">Green pushpin</option>
+							<option value="purple-pushpin">Purple pushpin</option>
+				</field>
+				
+				<field 	name="catid" 
+						type="category" 
+						extension="com_content" 
+						multiple="true" 
+						size="5" 
+						default="0" 
+						label="MOD_GMAPS_MARKER_CATEGORY_LABEL" 
+						description="MOD_GMAPS_MARKER_CATEGORY_DESCR" />
+						
+				<field 	name="other_icon" 
+						type="list" 
+						default="blue-dot" 
+						label="MOD_GMAPS_MARKER_CATEGORY_ICON_LABEL" 
+						description="MOD_GMAPS_MARKER_CATEGORY_ICON_DESCR">
+							<option value="red-dot">Red dot</option>
+							<option value="orange-dot">Orange dot</option>
+							<option value="yellow-dot">Yellow dot</option>
+							<option value="pink-dot">Pink dot</option>
+							<option value="blue-dot">Blue dot</option>
+							<option value="ltblue-dot">Lightblue dot</option>
+							<option value="green-dot">Green dot</option>
+							<option value="purple-dot">Purple dot</option>
+							<option value="red-pushpin">Red pushpin</option>
+							<option value="ylw-pushpin">Yellow pushpin</option>
+							<option value="pink-pushpin">Pink pushpin</option>
+							<option value="blue-pushpin">Blue pushpin</option>
+							<option value="ltblu-pushpin">Lightblue pushpin</option>
+							<option value="grn-pushpin">Green pushpin</option>
+							<option value="purple-pushpin">Purple pushpin</option>
+				</field>	
+				
+				<field 	name="items" 
+						type="text" 
+						default="4" 
+						label="MOD_GMAPS_MAX_ITEMS_LABEL" 
+						description="MOD_GMAPS_MAX_ITEMS_DESCR" />
+						
+				<field 	name="zoom_level" 
+						type="list" 
+						default="13" 
+						label="MOD_GMAPS_MAP_ZOOM_LEVEL_LABEL" 
+						description="MOD_GMAPS_MAP_ZOOM_LEVEL_DESCR">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+				</field>
+						
+				<field 	name="map_controls" 
+						type="list" 
+						default="2" 
+						label="MOD_GMAPS_MAP_ZOOM_CONTROLS_LABEL" 
+						description="MOD_GMAPS_MAP_ZOOM_CONTROLS_DESCR">
+							<option value="0">None</option>
+							<option value="1">Small</option>
+							<option value="2">Large</option>
+				</field>
+				
+				<field 	name="scroll_wheel_zoom" 
+						type="radio" 
+						default="1" 
+						label="MOD_GMAPS_MAP_SCROLL_WHEEL_ZOOM_LABEL" 
+						description="MOD_GMAPS_MAP_SCROLL_WHEEL_ZOOM_DESCR">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+				</field>
+				
+				<field 	name="map_type" 
+						type="list" 
+						default="0" 
+						label="MOD_GMAPS_DEFAULT_MAP_TYPE_LABEL" 
+						description="Define the default map type">
+							<option value="0">Normal</option>
+							<option value="1">Satellite</option>
+							<option value="2">Hybrid</option>
+				</field>
+				
+				<field 	name="type_controls" 
+						type="radio" 
+						default="1" 
+						label="MOD_GMAPS_MAP_TYPE_CONTROLS_LABEL" 
+						description="MOD_GMAPS_MAP_TYPE_CONTROLS_DESCR">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+				</field>
+				
+				<field 	name="map_type_controls" 
+						type="list" 
+						default="GSmallMapControl" 
+						label="MOD_GMAPS_MAP_TYPE_CONTROLS_LABEL" 
+						description="MOD_GMAPS_MAP_TYPE_CONTROLS_DESCR">
+							<option value="GSmallMapControl">GSmallMapControl</option>
+							<option value="GLargeMapControl">GLargeMapControl</option>
+							<option value="GSmallZoomControl">GSmallZoomControl</option>
+							<option value="GLargeMapControl3D">GLargeMapControl3D</option>
+							<option value="GSmallZoomControl3D">GSmallZoomControl3D</option>
+							<option value="GScaleControl">GScaleControl</option>
+							<option value="GMapTypeControl">GMapTypeControl</option>
+							<option value="GMenuMapTypeControl">GMenuMapTypeControl</option>
+							<option value="GHierarchicalMapTypeControl">GHierarchicalMapTypeControl</option>
+							<option value="GOverviewMapControl">GOverviewMapControl</option>
+							<option value="GNavLabelControl">GNavLabelControl</option>
+				</field>				
+				
+				<field 	name="overview_controls" 
+						type="radio" 
+						default="1" 
+						label="MOD_GMAPS_MAP_OVERVIEW_LABEL" 
+						description="MOD_GMAPS_MAP_OVERVIEW_DESCR">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+				</field>
+				
+				<field 	name="html_preppend" 
+						type="textarea"
+						default="" 
+						label="MOD_GMAPS_HTML_PREPPEND_TEXT_LABEL"
+						rows="5" 
+						cols="40" 
+						description="MOD_GMAPS_HTML_PREPPEND_TEXT_DESCR" 
+						filter="raw" />
+						
+				<field 	name="html_append" 
+						type="textarea"
+						default="" 
+						label="MOD_GMAPS_HTML_APPEND_TEXT_LABEL"
+						rows="5" 
+						cols="40" 
+						description="MOD_GMAPS_APPEND_TEXT_DESCR"
+						filter="raw" />
+				
+				<field 	name="geocode_cache" 
+						type="radio" 
+						default="1" 
+						label="MOD_GMAPS_GEOCODE_CACHE_LABEL" 
+						description="MOD_GMAPS_GEOCODE_CACHE_DESCR">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+				</field>
+				
+				<field 	name="directions" 
+						type="radio" 
+						default="1" 
+						label="MOD_GMAPS_SHOW_DIRECTIONS_LABEL" 
+						description="MOD_GMAPS_SHOW_DIRECTIONS_DESCR">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+				</field>
+				
+				<field 	name="directions_dest_update" 
+						type="radio" 
+						default="0" 
+						label="MOD_GMAPS_UPDATE_DIRECTIONS_LABEL" 
+						description="MOD_GMAPS_UPDATE_DIRECTIONS_DESCR">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+				</field>
+				
+				<field 	name="locale" 
+						type="text" 
+						default="en" 
+						label="MOD_GMAPS_DIRECTIONS_LANGUAGE_LABEL" 
+						description="MOD_GMAPS_DIRECTIONS_LANGUAGE_DESCR" />
+						
+				<field 	name="module_width" 
+						type="text" 
+						default="500" 
+						label="MOD_GMAPS_MODULE_WIDTH_LABEL" 
+						description="MOD_GMAPS_MODULE_WIDTH_DESCR" />
+						
+				<field 	name="module_height" 
+						type="text" 
+						default="400" 
+						label="MOD_GMAPS_MODULE_HEIGHT_LABEL" 
+						description="MOD_GMAPS_MODULE_HEIGHT_DESCR" />
+				
+				<field 	name="moduleclass_sfx" 
+						type="text" 
+						default="" 
+						label="MOD_GMAPS_MODULE_CLASS_SUFFIX_LABEL" 
+						description="MOD_GMAPS_MODULE_CLASS_SUFFIX_DESCR" />
+						
+				<field  name="menuitem" 
+						type="menuitem" 
+						default="45" 
+						label="MOD_GMAPS_MENU_ITEM_LABEL" 
+						description="MOD_GMAPS_MENU_ITEM_DESCR" />
+						
+				<field 	name="marker_list" 
+						type="radio" 
+						default="false" 
+						label="MOD_GMAPS_UPDATE_DIRECTIONS_LABEL" 
+						description="MOD_GMAPS_UPDATE_DIRECTIONS_DESCR">
+							<option value="TRUE">Yes</option>
+							<option value="FALSE">No</option>
+				</field>
+				
+				<field 	name="marker_list_pos" 
+						type="radio" 
+						default="1" 
+						label="MOD_GMAPS_UPDATE_DIRECTIONS_LABEL" 
+						description="MOD_GMAPS_UPDATE_DIRECTIONS_DESCR">
+							<option value="0">Above</option>
+							<option value="1">Below</option>
+				</field>
+						
+			</fieldset>
+		</fields>
+	</config>
+</extension>
